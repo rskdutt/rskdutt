@@ -5,7 +5,7 @@ date: 2024-05-30
 version: 1.0
 license: MIT
 description: A pipeline for Retrieval-Augmented Generation (RAG) using LlamaIndex 0.12.x with Pinecone vector store , llama-index==0.12.52, pinecone
-requirements: llama-index, llama-index-llms-ollama, llama-index-embeddings-ollama, pinecone 
+requirements: llama-index, llama-index-llms-ollama, llama-index-embeddings-ollama, llama-index-vector-stores-pinecone, pinecone 
 """
 
 from typing import List, Union, Generator, Iterator, Optional
@@ -21,11 +21,14 @@ try:
     from llama_index.embeddings.ollama import OllamaEmbedding
     #from llama_index.llms import Ollama
     from llama_index.llms.ollama import Ollama
-    from llama_index.vector_stores import PineconeVectorStore
+    #from llama_index.vector_stores import PineconeVectorStore
+    from llama_index.vector_stores.pinecone import PineconeVectorStore
     import pinecone
     LLAMA_INDEX_AVAILABLE = True
 except ImportError:
     LLAMA_INDEX_AVAILABLE = False
+
+
 
 
 class Pipeline:
